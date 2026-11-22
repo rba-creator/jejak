@@ -22,8 +22,9 @@ export function Layout() {
     <div className="flex min-h-dvh flex-col bg-slate-50">
       <header className="sticky top-0 z-[1000] bg-green-900 text-white shadow pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link to="/" className="font-bold tracking-wide">
-            JEJAK-OPT
+          <Link to="/" className="flex items-center gap-2 font-bold tracking-wide">
+            <img src="/favicon.svg" alt="Logo JEJAK-OPT" className="h-7 w-7 drop-shadow-sm" />
+            <span>JEJAK-OPT</span>
           </Link>
           <Link to="/profil" className="flex items-center gap-2 text-sm text-green-50">
             <span className="hidden text-right sm:block">
