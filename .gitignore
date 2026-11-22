@@ -1,0 +1,24 @@
+# Dependencies & build
+node_modules
+dist
+dev-dist
+*.tsbuildinfo
+coverage
+
+# Env (hanya .env.example yang boleh di-commit)
+.env
+.env.*
+!.env.example
+
+# Tooling lokal
+.wrangler
+supabase/.temp
+supabase/.branches
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# OS & log
+.DS_Store
+Thumbs.db
+*.log
