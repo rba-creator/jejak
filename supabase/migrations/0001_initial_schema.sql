@@ -1,5 +1,5 @@
 -- =============================================================================
--- SIPUT-OPT — Skema awal
+-- JEJAK-OPT — Skema awal
 -- Jalankan sekali di Supabase SQL Editor (atau `supabase db push`).
 -- Baseline keamanan: RLS di semua tabel, perubahan status/penugasan/peran
 -- hanya melalui RPC security definer yang memvalidasi peran & cakupan wilayah.
@@ -110,7 +110,7 @@ $$;
 create or replace function public.lindungi_kolom_profil()
 returns trigger language plpgsql set search_path = '' as $$
 begin
-  if auth.uid() is not null and coalesce(current_setting('siput.rpc', true), '') <> '1' then
+  if auth.uid() is not null and coalesce(current_setting('jejak.rpc', true), '') <> '1' then
     if new.role is distinct from old.role
        or new.kode_wilayah is distinct from old.kode_wilayah
        or new.email is distinct from old.email
@@ -214,7 +214,7 @@ create trigger laporan_turunan before insert or update on public.laporan
 create or replace function public.lindungi_kolom_laporan()
 returns trigger language plpgsql set search_path = '' as $$
 begin
-  if auth.uid() is not null and coalesce(current_setting('siput.rpc', true), '') <> '1' then
+  if auth.uid() is not null and coalesce(current_setting('jejak.rpc', true), '') <> '1' then
     if tg_op = 'INSERT' then
       if new.status <> 'baru' or new.petugas_id is not null or new.catatan_admin is not null then
         raise exception 'Laporan baru harus berstatus baru tanpa penugasan';
@@ -429,14 +429,14 @@ begin
     raise exception 'Alasan penolakan wajib diisi';
   end if;
 
-  perform set_config('siput.rpc', '1', true);
+  perform set_config('jejak.rpc', '1', true);
   update public.laporan
      set status = p_status,
          petugas_id = case when p_status in ('diverifikasi', 'baru') then null else petugas_id end,
          catatan_admin = coalesce(nullif(trim(p_catatan), ''), catatan_admin)
    where id = p_laporan_id
   returning * into v_lap;
-  perform set_config('siput.rpc', '', true);
+  perform set_config('jejak.rpc', '', true);
 
   insert into public.laporan_riwayat (laporan_id, status_lama, status_baru, oleh, catatan)
   values (p_laporan_id, v_lama, p_status, auth.uid(), nullif(trim(p_catatan), ''));
@@ -471,13 +471,13 @@ begin
   if not public.dalam_cakupan(v_ptg.kode_wilayah) then raise exception 'Petugas di luar cakupan wilayah Anda'; end if;
 
   v_lama := v_lap.status;
-  perform set_config('siput.rpc', '1', true);
+  perform set_config('jejak.rpc', '1', true);
   update public.laporan
      set status = 'ditugaskan', petugas_id = p_petugas_id,
          catatan_admin = coalesce(nullif(trim(p_catatan), ''), catatan_admin)
    where id = p_laporan_id
   returning * into v_lap;
-  perform set_config('siput.rpc', '', true);
+  perform set_config('jejak.rpc', '', true);
 
   insert into public.laporan_riwayat (laporan_id, status_lama, status_baru, oleh, catatan)
   values (p_laporan_id, v_lama, 'ditugaskan', auth.uid(),
@@ -525,10 +525,10 @@ begin
     raise exception 'Hanya admin yang dapat mengatur peran';
   end if;
 
-  perform set_config('siput.rpc', '1', true);
+  perform set_config('jejak.rpc', '1', true);
   update public.profiles set role = p_role, kode_wilayah = p_kode_wilayah
    where id = p_user_id returning * into v_target;
-  perform set_config('siput.rpc', '', true);
+  perform set_config('jejak.rpc', '', true);
   return v_target;
 end $$;
 

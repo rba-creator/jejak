@@ -58,7 +58,7 @@ export function LoginPage() {
       <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
         <div className="mb-6 text-center">
           <img src="/favicon.svg" alt="" className="mx-auto mb-2 h-14 w-14" />
-          <h1 className="text-xl font-bold text-green-900">SIPUT-OPT</h1>
+          <h1 className="text-xl font-bold text-green-900">JEJAK-OPT</h1>
           <p className="text-sm text-slate-500">Pelaporan & Pemetaan Serangan OPT</p>
         </div>
 

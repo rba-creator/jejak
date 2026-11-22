@@ -5,7 +5,7 @@ import { sinkronDraft } from '../lib/sync'
 import type { Profil } from '../lib/types'
 import { AuthContext, type AuthState } from './context'
 
-const KUNCI_PROFIL = 'siput:profil'
+const KUNCI_PROFIL = 'jejak:profil'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)

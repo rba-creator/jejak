@@ -1,4 +1,4 @@
-# SIPUT-OPT Starter Project
+# JEJAK-OPT Starter Project
 
 Starter PWA untuk pelaporan dan pemetaan serangan Organisme Pengganggu Tumbuhan (OPT). Aplikasi berdiri sendiri pada tahap awal; skema dapat dikembangkan untuk integrasi dengan SIPUT-KALTIM di masa mendatang.
 
@@ -106,9 +106,9 @@ Service worker meng-cache tile RBI dan OSM yang **sudah pernah dilihat** (RBI ma
 ```bash
 git init
 git add .
-git commit -m "chore: initial SIPUT-OPT PWA starter"
+git commit -m "chore: initial JEJAK-OPT PWA starter"
 git branch -M main
-git remote add origin https://github.com/USERNAME/siput-opt.git
+git remote add origin https://github.com/USERNAME/JEJAK-OPT.git
 git push -u origin main
 ```
 
@@ -117,7 +117,7 @@ Jangan commit `.env.local`. Pastikan `.gitignore` tetap aktif.
 ## 5. Cloudflare Pages
 
 1. Buka Cloudflare Dashboard > Workers & Pages > Create > Pages > Connect to Git.
-2. Pilih repository `siput-opt`.
+2. Pilih repository `JEJAK-OPT`.
 3. Framework preset: **Vite**.
 4. Build command: `npm run build`.
 5. Build output directory: `dist`.

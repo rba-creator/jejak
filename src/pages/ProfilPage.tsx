@@ -59,7 +59,7 @@ export function ProfilPage() {
   }
 
   async function handleKeluar() {
-    if (confirm('Keluar dari aplikasi SIPUT-OPT?')) {
+    if (confirm('Keluar dari aplikasi JEJAK-OPT?')) {
       await keluar()
       navigate('/login')
     }

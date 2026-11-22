@@ -1,5 +1,5 @@
 -- =============================================================================
--- SIPUT-OPT — Data contoh
+-- JEJAK-OPT — Data contoh
 -- Jalankan setelah 0001_initial_schema.sql. Aman dijalankan ulang.
 -- =============================================================================
 

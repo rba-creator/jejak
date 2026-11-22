@@ -1,15 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <rect width="512" height="512" rx="128" fill="#14532d"/>
-  <!-- Leaf element representing plants/agriculture -->
-  <path d="M120 370 C120 220, 240 140, 390 120 C370 270, 290 350, 140 370 Z" fill="#22c55e" opacity="0.9"/>
-  <path d="M135 360 Q230 250 380 130" stroke="#14532d" stroke-width="14" stroke-linecap="round" fill="none"/>
-  <!-- Snail shell spiral representing SIPUT -->
-  <circle cx="280" cy="300" r="100" fill="#f59e0b"/>
-  <path d="M280 230 A70 70 0 1 1 210 300 A40 40 0 1 1 250 300" fill="none" stroke="#b45309" stroke-width="16" stroke-linecap="round"/>
-  <!-- Snail body and eye tentacles -->
-  <path d="M160 370 C160 350, 190 340, 250 340 L370 340 C420 340, 440 370, 440 380 C440 395, 410 400, 320 400 L180 400 C160 400, 160 385, 160 370 Z" fill="#fbbf24"/>
-  <path d="M410 350 L430 305" stroke="#fbbf24" stroke-width="12" stroke-linecap="round"/>
-  <circle cx="430" cy="300" r="10" fill="#78350f"/>
-  <path d="M390 350 L400 315" stroke="#fbbf24" stroke-width="10" stroke-linecap="round"/>
-  <circle cx="400" cy="310" r="8" fill="#78350f"/>
+  <!-- Map pin / Jejak element representing geolocation tracking -->
+  <path d="M256 80 C170 80, 100 150, 100 236 C100 340, 235 440, 256 450 C277 440, 412 340, 412 236 C412 150, 342 80, 256 80 Z" fill="#15803d" opacity="0.95"/>
+  <!-- Inner circular map core -->
+  <circle cx="256" cy="225" r="95" fill="#f8fafc"/>
+  <!-- Plant leaf / sprout element inside the pin representing agricultural OPT -->
+  <path d="M256 280 C256 220, 210 180, 195 165 C230 160, 280 180, 285 230 Z" fill="#16a34a"/>
+  <path d="M256 280 C260 210, 305 170, 320 155 C320 195, 290 245, 256 280 Z" fill="#22c55e"/>
+  <path d="M256 280 L256 210" stroke="#14532d" stroke-width="8" stroke-linecap="round"/>
 </svg>

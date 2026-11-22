@@ -44,8 +44,8 @@ export default defineConfig(({ mode }) => {
         injectThemeColor: false
       },
       manifest: {
-        name: 'SIPUT-OPT',
-        short_name: 'SIPUT-OPT',
+        name: 'JEJAK-OPT',
+        short_name: 'JEJAK-OPT',
         description: 'Pelaporan dan pemetaan serangan Organisme Pengganggu Tumbuhan',
         lang: 'id',
         theme_color: '#14532d',

@@ -17,7 +17,7 @@ async function denganCache<T>(kunci: string, ambil: () => Promise<T>): Promise<T
 }
 
 export function muatJenisOpt(): Promise<JenisOpt[]> {
-  return denganCache('siput:jenis_opt', async () => {
+  return denganCache('jejak:jenis_opt', async () => {
     const { data, error } = await supabase
       .from('jenis_opt')
       .select('id, nama, nama_ilmiah, kategori, komoditas, aktif')
@@ -30,7 +30,7 @@ export function muatJenisOpt(): Promise<JenisOpt[]> {
 }
 
 export function muatWilayah(): Promise<Wilayah[]> {
-  return denganCache('siput:wilayah', async () => {
+  return denganCache('jejak:wilayah', async () => {
     const { data, error } = await supabase
       .from('wilayah')
       .select('kode, nama, tingkat, kode_induk')

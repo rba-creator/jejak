@@ -23,7 +23,7 @@ export function Layout() {
       <header className="sticky top-0 z-[1000] bg-green-900 text-white shadow pt-[env(safe-area-inset-top)]">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <Link to="/" className="font-bold tracking-wide">
-            SIPUT-OPT
+            JEJAK-OPT
           </Link>
           <Link to="/profil" className="flex items-center gap-2 text-sm text-green-50">
             <span className="hidden text-right sm:block">

@@ -12,7 +12,7 @@ export interface Draft {
   last_error: string | null
 }
 
-interface SiputDB extends DBSchema {
+interface JejakDB extends DBSchema {
   drafts: {
     key: string
     value: Draft
@@ -20,10 +20,10 @@ interface SiputDB extends DBSchema {
   }
 }
 
-let dbPromise: Promise<IDBPDatabase<SiputDB>> | null = null
+let dbPromise: Promise<IDBPDatabase<JejakDB>> | null = null
 
 function db() {
-  dbPromise ??= openDB<SiputDB>('siput-opt', 1, {
+  dbPromise ??= openDB<JejakDB>('jejak-opt', 1, {
     upgrade(d) {
       const s = d.createObjectStore('drafts', { keyPath: 'client_id' })
       s.createIndex('by_user', 'user_id')
@@ -53,5 +53,5 @@ export async function tandaiGagal(clientId: string, pesan: string) {
 }
 
 /** Beri tahu komponen lain bahwa daftar draft berubah. */
-export const EVENT_DRAFT = 'siput:drafts-changed'
+export const EVENT_DRAFT = 'jejak:drafts-changed'
 export const umumkanDraftBerubah = () => window.dispatchEvent(new Event(EVENT_DRAFT))
